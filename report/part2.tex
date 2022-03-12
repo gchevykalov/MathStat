@@ -1,0 +1,196 @@
+\newpage
+\section{Теория}
+\subsection{ Рассматриваемые распределения}
+\begin{flushleft}
+	Плотности:
+	\begin{itemize}
+		\item Нормальное распределение
+		\begin{equation}
+			\label{3} N(x, 0, 1)\,=\,\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+		\end{equation}
+		\item Распределение Коши
+		\begin{equation}
+			\label{4} C(x, 0, 1)\,=\,\frac{1}{\pi}\frac{1}{x^2\,+\,1}
+		\end{equation}
+		\item Распределение Лапласа
+		\begin{equation}
+			\label{5} L(x, 0, \frac{1}{\sqrt{2}})\,=\,\frac{1}{\sqrt{2}}e^{-\sqrt{2}\left|x\right|}
+		\end{equation}
+		\item Распределение Пуассона
+		\begin{equation}
+			\label{6} P(k, 10)\,=\,\frac{10^k}{k!}e^{-10}
+		\end{equation}
+		\item Равномерное распределение
+		\begin{equation}
+			\label{7} U(x, -\sqrt{3}, \sqrt{3})\,=\,
+			\begin{cases}
+				\frac{1}{2\sqrt{3}} &\text{при $\left|x\right|\,\leq\,\sqrt{3}$}\\
+				0 &\text{при $\left|x\right|\,>\,\sqrt{3}$}
+			\end{cases}
+		\end{equation}
+	\end{itemize}
+\end{flushleft}
+
+\subsection{Гистограмма}
+\subsubsection{Построение гистограммы}
+\begin{flushleft}
+Множество значений, которое может принимать элемент выборки, разбивается на несколько интервалов. Чаще всего эти интервалы берут одинаковыми, но это не является строгим требованием. Эти интервалы откладываются на горизонтальной оси, затем над каждым рисуется прямоугольник. Если все интервалы были одинаковыми, то высота каждого прямоугольника пропорциональна числу элементов выборки, попадающих в соответствующий интервал. Если интервалы разные, то высота прямоугольника выбирается таким образом, чтобы его площадь была пропорциональна числу элементов выборки, которые попали в этот интервал \cite{1}.
+\end{flushleft}
+
+\subsection{Вариационный ряд}
+\begin{flushleft}
+	Вариационным ряд - последовательность элементов выборки, расположенных в неубывающем порядке. Одинаковые элементы повторяются \cite[с.~409]{2}.
+\end{flushleft}
+
+\subsection{Выборочные числовые характеристики}
+\subsubsection{Характеристики положения}
+\begin{flushleft}
+	\begin{itemize}
+		\item Выборочное среднее
+		\begin{equation}
+			\label{8} \bar{x}\,=\,\frac{1}{n}\displaystyle\sum_{i=1}^{n} x_i
+		\end{equation}
+		\item Выборочная медиана
+		\begin{equation}
+			\label{9} med \, x \,=\,
+			\begin{cases}
+				x_{(l+1)} &\text{при $n \,=\,2l \,+\,1$}\\
+				\frac{x_{(l)}\,+\,x_{(l+1)}}{2} &\text{при $n \,=\,2l$}
+			\end{cases}
+		\end{equation}
+		\item Полусумма экстремальных выборочных элементов
+		\begin{equation}
+			\label{10} z_R \,=\,\frac{x_{(1)}\,+\, x_{(n)}}{2}
+		\end{equation}
+		\item Полусумма квартилей \\
+		Выборочная квартиль $ z_p $ порядка $ p $ определяется формулой
+		\begin{equation}
+			\label{11} z_p \,=\,
+			\begin{cases}
+				x_{(\left[np\right]+1)} &\text{при $np$ дробном,}\\
+				x_{(np)} &\text{при $np$ целом.}
+			\end{cases}
+		\end{equation}
+		Полусумма квартилей
+		\begin{equation}
+			\label{12} z_Q \,=\,\frac{z_{1/4}\,+\, z_{3/4}}{2}
+		\end{equation}
+		\item Усечённое среднее
+		\begin{equation}
+			\label{13} z_{tr} \,=\,\frac{1}{n \,-\,2r}\displaystyle\sum_{i=r+1}^{n-r} x_{(i)},\quad r \,\approx\,\frac{n}{4}
+		\end{equation}
+	\end{itemize}
+\end{flushleft}
+
+\subsubsection{Характеристики рассеяния}
+\begin{flushleft}
+	Выборочная дисперсия
+	\begin{equation}
+		\label{14} D \,=\,\frac{1}{n}\displaystyle\sum_{i=1}^{n} (x_i \,-\, \bar{x})^2
+	\end{equation}
+\end{flushleft}
+
+\subsection{Боксплот Тьюки}
+\subsubsection{Построение}
+\begin{flushleft}
+	Границами ящика $-$ первый и третий квартили, линия в середине ящика $-$ медиана. Концы усов $-$ края статистически значимой выборки (без выбросов). Длина «усов»:
+	\begin{equation}
+		\label{15} X_1 \, =\, Q_1\,-\,\frac{3}{2}(Q_3\,-\, Q_1),\quad X_2\,=\, Q_3\,+\,\frac{3}{2}(Q_3\,-\, Q_1)
+	\end{equation}
+	где $X_1$ $-$ нижняя граница уса, $X_2$ $-$ верхняя граница уса, $Q_1$ $-$ первый квартиль, $Q_3$ $-$ третий квартиль. \\
+	Данные, выходящие за границы усов (выбросы), отображаются на графике в виде маленьких кружков \cite{3}.
+\end{flushleft}
+
+\subsection{Теоретическая вероятность выбросов}
+\begin{flushleft}
+	Выбросы $-$ величины $x$: \\
+	\begin{equation}
+		\label{16} \left[
+		\begin{gathered}
+			x \, < \, X_1^T \\
+			x \, > \, X_2^T \\
+		\end{gathered}
+		\right.
+	\end{equation}
+	Теоретическая вероятность выбросов:
+	\begin{itemize}
+	\item для непрерывных распределений
+	\begin{equation}
+		\label{17} P_B^T \, =\, P(x \,<\, X_1^T)\,+\, P(x \,>\, X_2^T)\,=\, F(X_1^T)\,+\,\left(1\,-\, F(X_2^T)\right).
+	\end{equation}
+	\item для дискретных распределений
+	\begin{equation}
+		\label{18} P_B^T \, =\, P(x \,<\, X_1^T)\,+\, P(x \,>\, X_2^T)\,=\,\left(F(X_1^T)\,-\, P(x \,=\, X_1^T)\right)\,+\,\left(1\,-\, F(X_2^T)\right).
+	\end{equation}
+	\end{itemize}
+	Выше $ F(x)\,=\, P(x \,\leq\, X)\,-\, $ функция распределения.
+\end{flushleft}
+
+\subsection{Эмпирическая функция распределения}
+\subsubsection{Статистический ряд}
+\begin{flushleft}
+	Статистическим ряд $-$ последовательность различных элементов выборки $z_1,\, z_2,\,...\,,\, z_k,$ расположенных в возрастающем порядке с указанием частот $n_1,\, n_2,\,...\,,\, n_k,$ с которыми эти элементы содержатся в выборке. Обычно записывается в виде таблицы.
+\end{flushleft}
+
+\subsubsection{Эмпирическая функция распределения}
+\begin{flushleft}
+	Эмпирическая (выборочная) функция распределения (э. ф. р.) $-$ относительная частота события $x \,<\, X$, полученная по данной выборке:
+	\begin{equation}
+		\label{19} F_n^*(x)\,=\, P^*(X \,<\, x).
+	\end{equation}
+\end{flushleft}
+
+\subsubsection{Нахождение э. ф. р.}
+\begin{flushleft}
+	Для получения относительной частоты $ P^*(X \,<\, x)$ просуммируем в статистическом ряде, построенном по данной выборке, все частоты $n_i$, для которых элементы $z_i$ статистического ряда меньше $x$. Тогда $P^*(X \,<\, x)\,=\,\frac{1}{n}\displaystyle\sum_{z_i<x} n_i$. Получаем
+	\begin{equation}
+		\label{20} F^*(x)\,=\,\frac{1}{n}\displaystyle\sum_{z_i<x} n_i.
+	\end{equation}
+	$F^*(x)\,-$ функция распределения дискретной случайной величины	$X^*$, заданной таблицей распределения
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				$X^*$ & $z_1$ & $z_2$ & $...$ & $z_k$\\
+				\hline
+				$P$ & $\frac{n_1}{n}$ & $\frac{n_2}{n}$ & $...$ & $\frac{n_k}{n}$\\
+				\hline
+			\end{tabular}
+		\end{center}
+		\caption{\label{tab:1} Таблица распределения}
+	\end{table}
+	Эмпирическая функция распределения является оценкой, т.е. приближённым значением, генеральной функции распределения
+	\begin{equation}
+		\label{21} F_n^*(x)\,\approx\,F_X(x).
+	\end{equation}
+\end{flushleft}
+
+\subsection{Оценки плотности вероятности}
+\subsubsection{Определение}
+\begin{flushleft}
+	Оценкой плотности вероятности $f(x)$ называется функция $\hat{f}(x)$, построенная на основе выборки, приближённо равная $f(x)$
+	\begin{equation}
+		\label{22} \hat{f}(x)\,\approx\, f(x).
+	\end{equation}
+\end{flushleft}
+
+\subsubsection{Ядерные оценки}
+\begin{flushleft}
+	Представим оценку в виде суммы с числом слагаемых, равным объёму выборки:
+	\begin{equation}
+		\label{23} \hat{f}_n(x)\,=\,\frac{1}{nh_n}\displaystyle\sum_{i=1}^{n} K\left(\frac{x \,-\, x_i}{h_n}\right).
+	\end{equation}
+	Здесь функция $K(u)$, называемая ядерной (ядром), непрерывна и является плотностью вероятности, $x_1,\, x_2,\,...\,,\, x_n \,-$ элементы выборки, ${h_n}\,-$ любая последовательность положительных чисел, обладающая свойствами
+	\begin{equation}
+		\label{24} h_n \,\xlongrightarrow[n \,\rightarrow\,\infty]{}\,0;\quad \frac{h_n}{n^{-1}}\,\xlongrightarrow[n \,\rightarrow\,\infty]{}\,\infty.
+	\end{equation}
+	Гауссово (нормальное) ядро \cite[с.38]{4}
+	\begin{equation}
+		\label{25} K(u)\,=\,\frac{1}{\sqrt{2\pi}}e^{-\frac{u^2}{2}}.
+	\end{equation}
+	Правило Сильвермана \cite[с.44]{4}
+	\begin{equation}
+		\label{26} h_n \,=\,1.06\hat{\sigma}n^{-1/5},
+	\end{equation}
+	где $\hat{\sigma}\,-$ выборочное стандартное отклонение.
+\end{flushleft}

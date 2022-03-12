@@ -1,0 +1,220 @@
+\section{Результаты}
+\subsection{Гистограмма и график плотности распределения}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task1\_images/Norm}}
+	\caption{ Нормальное распределение.}
+	\label{ris:1}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task1\_images/Cauchy}}
+	\caption{ Распределение Коши.}
+	\label{ris:2}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task1\_images/Laplace}}
+	\caption{ Распределение Лапласа.}
+	\label{ris:3}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task1\_images/Poisson}}
+	\caption{ Распределение Пуассона.}
+	\label{ris:4}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task1\_images/Uniform}}
+	\caption{ Равномерное распределение.}
+	\label{ris:5}
+\end{figure}
+
+\subsection{Характеристики положения и рассеяния}
+\begin{table}[H]
+	\begin{center}
+		\input{lab/task2\_tables/Norm}
+	\end{center}
+	\caption{\label{tab:2} Нормальное распределение.}
+\end{table}
+\begin{table}[H]
+	\begin{center}
+		\input{lab/task2\_tables/Cauchy}
+	\end{center}
+	\caption{\label{tab:3} Распределение Коши.}
+\end{table}
+\begin{table}[H]
+	\begin{center}
+		\input{lab/task2\_tables/Laplace}
+	\end{center}
+	\caption{\label{tab:4} Распределение Лапласа.}
+\end{table}
+\begin{table}[H]
+	\begin{center}
+		\input{lab/task2\_tables/Poisson}
+	\end{center}
+	\caption{\label{tab:5} Распределение Пуассона.}
+\end{table}
+\begin{table}[H]
+	\begin{center}
+		\input{lab/task2\_tables/Uniform}
+	\end{center}
+	\caption{\label{tab:6} Равномерное распределение.}
+\end{table}
+
+\subsection{Боксплот Тьюки}
+\begin{figure}[H]
+	\center{\includegraphics[width=0.65\linewidth]{task3\_data/Norm}}
+	\caption{ Нормальное распределение.}
+	\label{ris:6}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=0.65\linewidth]{task3\_data/Cauchy}}
+	\caption{ Распределение Коши.}
+	\label{ris:7}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=0.65\linewidth]{task3\_data/Laplace}}
+	\caption{ Распределение Лапласа.}
+	\label{ris:8}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=0.65\linewidth]{task3\_data/Poisson}}
+	\caption{ Распределение Пуассона.}
+	\label{ris:9}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=0.65\linewidth]{task3\_data/Uniform}}
+	\caption{ Равномерное распределение.}
+	\label{ris:10}
+\end{figure}
+
+\subsection{Доля выбросов}
+\begin{table}[H]
+	\begin{center}
+		\input{lab/task3\_data/task3}
+	\end{center}
+	\caption{\label{tab:7} Экспериментальная доля выбросов.}
+\end{table}
+
+\subsection{Теоретическая вероятность выбросов}
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Распределение & $P_B^T \,(\ref{17}),(\ref{18})$ \\
+			\hline
+			Нормальное распределение & 0.007\\
+			\hline
+			Распределение Коши  & 0.156\\
+			\hline
+			Распределение Лапласа & 0.063\\
+			\hline
+			Распределение Пуассона & 0.008\\
+			\hline
+			Равномерное распределение & 0\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{\label{tab:8} Теоретическая вероятность выбросов.}
+\end{table}
+
+\subsection{Эмпирическая функция распределения}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Norm\_emperic\_f}}
+	\caption{ Нормальное распределение.}
+	\label{ris:11}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Cauchy\_emperic\_f}}
+	\caption{ Распределение Коши.}
+	\label{ris:12}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Laplace\_emperic\_f}}
+	\caption{ Распределение Лапласа.}
+	\label{ris:13}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Poisson\_emperic\_f}}
+	\caption{ Распределение Пуассона.}
+	\label{ris:14}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Uniform\_emperic\_f}}
+	\caption{ Равномерное распределение.}
+	\label{ris:15}
+\end{figure}
+
+\subsection{Ядерные оценки плотности распределения}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Norm\_kernel\_n20}}
+	\caption{ Нормальное распределение n = 20.}
+	\label{ris:16}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Norm\_kernel\_n60}}
+	\caption{ Нормальное распределение n = 60.}
+	\label{ris:17}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Norm\_kernel\_n100}}
+	\caption{ Нормальное распределение n = 100.}
+	\label{ris:18}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Cauchy\_kernel\_n20}}
+	\caption{ Распределение Коши n = 20.}
+	\label{ris:19}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Cauchy\_kernel\_n60}}
+	\caption{ Распределение Коши n = 60.}
+	\label{ris:20}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Cauchy\_kernel\_n100}}
+	\caption{ Распределение Коши n = 100.}
+	\label{ris:21}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Laplace\_kernel\_n20}}
+	\caption{ Распределение Лапласа n = 20.}
+	\label{ris:22}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Laplace\_kernel\_n60}}
+	\caption{ Распределение Лапласа n = 60.}
+	\label{ris:23}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Laplace\_kernel\_n100}}
+	\caption{ Распределение Лапласа n = 100.}
+	\label{ris:24}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Poisson\_kernel\_n20}}
+	\caption{ Распределение Пуассона n = 20.}
+	\label{ris:25}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Poisson\_kernel\_n60}}
+	\caption{ Распределение Пуассона n = 60.}
+	\label{ris:26}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Poisson\_kernel\_n100}}
+	\caption{ Распределение Пуассона n = 100.}
+	\label{ris:27}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Uniform\_kernel\_n20}}
+	\caption{ Равномерное распределение n = 20.}
+	\label{ris:28}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Uniform\_kernel\_n60}}
+	\caption{ Равномерное распределение n = 60.}
+	\label{ris:29}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task4\_data/Uniform\_kernel\_n100}}
+	\caption{ Равномерное распределение n = 100.}
+	\label{ris:30}
+\end{figure}
