@@ -1,0 +1,273 @@
+\newpage
+\section{Теория}
+\subsection{Двумерное нормальное распределение}
+\begin{flushleft}
+	Двумерная случайная величина $(X,Y)$ называется распределённой нормально (или просто нормальной), если её плотность вероятности определена формулой
+	\begin{equation}
+		N(x, y, \bar{x}, \bar{y}, \sigma_{x}, \sigma_{y}, \rho) = 
+		\frac{1}{2\pi\sigma_{x}\sigma_{y}\sqrt{1-\rho^{2}}} \times
+		exp{\left\lbrace 
+				-\frac{1}{2(1-\rho^{2})}
+				\left[  
+					\frac{(x-\bar{x})^{2}}{\sigma_{x}^{2}} - 2\rho\frac{(x-\bar{x})(y-\bar{y})}{\sigma_{x}\sigma_{y}} + \frac{(y-\bar{y})^{2}}{\sigma_{y}^{2}}
+				\right] 
+		\right\rbrace}
+		\label{N}
+	\end{equation}
+	Компоненты $X,Y$ двумерной нормальной случайной величины также распределены нормально с математическими ожиданиями $\bar{x}$,$\bar{y}$ и средними квадратическими отклонениями $\sigma_{x},\sigma_{y}$ соответственно \cite[с.~133-134]{1}.
+	Параметр $\rho$ называется коэффициентом корреляции.
+\end{flushleft}
+
+\subsection{Корреляционный момент (ковариация) и коэффициент корреляции}
+\begin{flushleft}
+	Корреляционный момент, иначе ковариация, двух случайных величин $X$ и $Y$:
+	\begin{equation}
+		K = cov(X, Y) = M[(X - \bar{x})(Y - \bar{y})]
+		\label{K}
+	\end{equation}
+	Коэффициент корреляции $\rho$ двух случайных величин $X$ и $Y$:
+	\begin{equation}
+		\rho = \frac{K}{\sigma_{x}\sigma_{y}}
+		\label{ro}
+	\end{equation}
+\end{flushleft}
+
+\subsection{Выборочные коэффициенты корреляции}
+\subsubsection{Выборочный коэффициент корреляции Пирсона}
+\begin{flushleft}
+	Выборочный коэффициент корреляции Пирсона:
+	\begin{equation}
+		r = \frac{
+			\frac{1}{n}\sum{(x_{i} - \bar{x})(y_{i}-\bar{y})}
+		}{
+			\sqrt{\frac{1}{n}\sum{(x_{i} - \bar{x})^{2}}\frac{1}{n}\sum{(y_{i} - \bar{y})^{2}}}
+		}=\frac{K}{s_{X}s_{Y}},
+		\label{r}
+	\end{equation}
+	где $K,s^{2}_{X},s^{2}_{Y}\,-$  выборочные ковариация и дисперсии с.в. $X$ и $Y$ \cite[с.~535]{1}.
+\end{flushleft}
+
+\subsubsection{Выборочный квадрантный коэффициент корреляции}
+\begin{flushleft}
+	Выборочный квадрантный коэффициент корреляции:
+	\begin{equation}
+		r_{Q} = \frac{(n_{1} + n_{3}) - (n_{2} + n_{4})}{n},
+		\label{rQ}
+	\end{equation}
+	где $n_1, n_2, n_3, n_4 \,- $ количества точек с координатами $x_i, y_i$, попавшими соответственно в I, II, III, IV квадранты декартовой системы с осями $x'=x-med x$, $y'=y-med y$ и с центром в точке с координатами $(med x,~med y)$ \cite[с.~539]{1}.
+\end{flushleft}
+
+\subsubsection{Выборочный коэффициент ранговой корреляции Спирмена}
+\begin{flushleft}
+	Обозначим ранги, соотвествующие значениям переменной $X$, через $u$, а ранги, соотвествующие значениям переменной $Y$, — через $v$. \\
+	Выборочный коэффициент ранговой корреляции Спирмена определяется как выборочный коэффициент корреляции Пирсона между рангами $u$, $v$ переменных $X$, $Y$:
+	\begin{equation}
+		r_{S} = \frac{
+			\frac{1}{n}\sum{(u_{i} - \bar{u})(v_{i}-\bar{v})}
+		}{
+			\sqrt{\frac{1}{n}\sum{(u_{i} - \bar{u})^{2}}\frac{1}{n}\sum{(v_{i} - \bar{v})^{2}}}
+		},
+		\label{rS}
+	\end{equation}
+	где $\bar{u} = \bar{v} = \frac{1 + 2 + ... + n}{n} = \frac{n + 1}{2}$ — среднее значение рангов \cite[с.~540-541]{1}.
+\end{flushleft}
+
+\subsection{Эллипсы рассеивания}
+\begin{flushleft}
+	Уравнение проекции эллипса рассеивания на плоскость $xOy$:
+	\begin{equation}
+		\frac{(x-\bar{x})^{2}}{\sigma_{x}^{2}} - 
+		2\rho\frac{(x-\bar{x})(y-\bar{y})}{\sigma_{x}\sigma_{y}}+
+		\frac{(y-\bar{y})^{2}}{\sigma_{y}^{2}} = const
+		\label{ellipse}
+	\end{equation}
+	Центр эллипса \ref{ellipse} находится в точке с координатами $(\bar{x},\bar{y})$; что касается направления осей симметрии эллипса, то они составляют с осью $Ox$ углы, определяемые уравнением
+	\begin{equation}
+		tg(2\alpha) = \frac{2\rho\sigma_{x}\sigma_{y}}{\sigma_{x}^{2} - \sigma_{y}^{2}}
+		\label{angle}
+	\end{equation}
+\end{flushleft}
+
+\subsection{Простая линейная регрессия}
+\subsubsection{Модель простой линейной регрессии}
+\begin{flushleft}
+	Регрессионную модель описания данных называют простой линейной регрессией, если
+	\begin{equation}
+		y_{i} = \beta_{0} + \beta_{1}x_{i} + \varepsilon_{i},  i = 1..n
+		\label{y_i}
+	\end{equation}
+	где $x_1,...,x_n \,- $ заданные числа (значения фактора);
+	$y_1,...y_n - $ наблюдаемые значения отклика;
+	$\varepsilon_1,...,\varepsilon_n - $ независимые, нормально распределенные $N(0, \sigma)$ с нулевым математическим ожиданием и одинаковой (неизвестной) дисперсией случайные величины (ненаблюдаемые);
+	$\beta_0, \beta_1 - $ неизвестные параметры, подлежащие оцениванию.
+\end{flushleft}
+
+\subsubsection{Метод наименьших квадратов}
+\begin{flushleft}
+	Метод наименьших квадратов (МНК):
+	\begin{equation}
+		Q(\beta_{0}, \beta_{1}) = \sum_{i=1}^{n}{\varepsilon_{i}^{2}} = 
+		\sum_{i=1}^{n}{(y_{i} - \beta_{0} - \beta_{1}x_{i})^{2}}\rightarrow \min_{\beta_{0}, \beta_{1}}
+		\label{Q_beta}
+	\end{equation}
+\end{flushleft}
+
+\subsubsection{Расчётные формулы для МНК-оценок}
+\begin{flushleft}
+	МНК-оценки параметров $\hat{\beta_0}, \hat{\beta_1}$:
+	\begin{equation}
+		\hat{\beta_{1}} = \frac{\bar{xy} - \bar{x} \cdot \bar{y}}{\bar{x^{2}} - (\bar{x})^{2}}
+		\label{beta_1_new}
+	\end{equation}
+	\begin{equation}
+		\hat{\beta_{0}} = \bar{y} - \bar{x}\hat{\beta_{1}}
+		\label{beta_0_new}
+	\end{equation}
+\end{flushleft}
+
+\subsection{Робастные оценки коэффициентов линейной регрессии}
+\begin{flushleft}
+	Метод наименьших модулей:
+	\begin{equation}
+		\sum_{i=1}^{n}{|y_{i} - \beta_{0} - \beta_{1}x_{i}|}\rightarrow \min_{\beta_{0}, \beta_{1}}
+		\label{min_abs}
+	\end{equation}
+	\begin{equation}
+		\hat{\beta_{1}}_{R} = r_{Q}\frac{q^{*}_{y}}{q^{*}_{x}},
+		\label{b_1R}
+	\end{equation}
+	\begin{equation}
+		\hat{\beta_{0}}_{R} = med y - \hat{\beta_{1}}_{R} med x,
+		\label{b_0R}
+	\end{equation}
+	\begin{equation}
+		r_{Q} = \frac{1}{n}\sum_{i=1}^{n}{sgn(x_{i} - med x)sgn(y_{i} - med y)},
+		\label{r_Q}
+	\end{equation}
+	\begin{equation}
+		q^{*}_{y} = \frac{y_{(j)} -y_{(l)}}{k_{q}(n)},~
+		q^{*}_{x} = \frac{x_{(j)} - x_{(l)}}{k_{q}(n)}.
+		\label{q*} 
+	\end{equation}
+	\begin{displaymath}
+		l = \begin{cases}
+			& [\frac{n}{4}] + 1 \text{ при } \frac{n}{4} \text{ дробном, } \\ 
+			& \frac{n}{4} \text{ при } \frac{n}{4} \text{ целом. }
+		\end{cases}
+	\end{displaymath}
+	\begin{displaymath}
+		j = n - l + 1
+	\end{displaymath}
+	\begin{displaymath}
+		sgn(z) = \begin{cases}
+			& 1 \text{ при } z > 0 \\ 
+			& 0 \text{ при } z = 0 \\
+			& -1 \text{ при } z < 0
+		\end{cases}
+	\end{displaymath}
+	Уравнение регрессии здесь имеет вид:
+	\begin{equation}
+		y = \hat{\beta_{0}}_{R} +  \hat{\beta_{1}}_{R}x.
+		\label{y}
+	\end{equation}
+\end{flushleft}
+
+\subsection{Метод максимального правдоподобия}
+\begin{flushleft}
+	$L(x_{1},... ,x_{n}, \theta)\,-$  функция правдоподобия (ФП), представляющая собой совместную плотность вероятности независимых с.в. $x_{1}, ... ,x_{n}$ и рассматриваемая как функция неизвестного параметра $\theta$:
+	\begin{equation}
+		L(x_{1},...,x_{n},\theta) = f(x_{1},\theta)f(x_{2},\theta)...f(x_{n}, \theta)
+		\label{L()}
+	\end{equation}
+	Оценка максимального правдоподобия:
+	\begin{equation}
+		\hat{\theta}_{m} = \arg \max_{\theta}L(x_{1},...,x_{n},\theta)
+		\label{theta_mp}
+	\end{equation}
+	Система уравнений правдоподобия (в случае дифференцируемости функции правдоподобия):
+	\begin{equation}
+		\frac{\partial L}{\partial \theta_{k}} = 0 \text{  или  } \frac{\partial \ln L}{\partial \theta_{k}} = 0, k = 1,..m.
+	\end{equation}
+\end{flushleft}
+
+\subsection{Проверка гипотезы о законе распределения генеральной совокупности. Метод хи-квадрат}
+\begin{flushleft}
+	Выдвинута гипотеза $H_{0}$ о генеральном законе распределения с функцией распределения $F(x)$.\\
+	Рассматриваем случай, когда гипотетическая функция распределения $F(x)$ не содержит неизвестных параметров.\\
+	\textbf{Правило проверки гипотезы о законе распределения по методу $\chi^{2}$}.\\
+	\begin{enumerate}
+		\item Выбираем уровень значимости $\alpha$.
+		\item По таблице \cite[с.~358]{3} находим квантиль $\chi^{2}_{1-\alpha}(k - 1)$ распределения хи-квадрат с k$-$1 степенями свободы порядка $1-\alpha$.
+		\item С помощью гипотетической функции распределения $F(x)$ вычисляем вероятности $p_{i} = P (X \in \Delta_{i})$, $i = 1, ... ,k$.
+		\item Находим частоты $n_{i}$ попадания элементов выборки в подмножества $\Delta_{i}$, $i = 1, ... ,k$.
+		\item Вычисляем выборочное значение статистики критерия $\chi^{2}$:
+		\begin{equation}
+			\chi^{2}_{B} =\sum_{i = 1}^{k}{\frac{(n_{i} - np_{i})^{2}}{np_{i}}}.
+			\label{chi_B}
+		\end{equation}
+		\item Сравниваем $\chi^{2}_{B}$ и квантиль $\chi^{2}_{1-\alpha}(k-1)$.
+		\begin{itemize}
+			\item Если $\chi^{2}_{B}$ < $\chi^{2}_{1-\alpha}$(k $-$ 1), то гипотеза $H_{0}$ на данном этапе проверки принимается.
+			\item Если $\chi^{2}_{B} >= \chi^{2}_{1-\alpha}(k -1)$, то гипотеза $H_{0}$ отвергается, выбирается одно из альтернативных распределений, и процедура проверки повторяется.
+		\end{itemize}
+	\end{enumerate}
+\end{flushleft}
+
+\subsection{Доверительные интервалы для параметров нормального распределения}
+\subsubsection{Доверительный интервал для математического ожидания $m$ нормального распределения}
+\begin{flushleft}
+	Дана выборка ($x_{1},x_{2}, ... ,x_{n}$) объёма n из нормальной генеральной совокупности. На её основе строим выборочное среднее $\bar{x}$ и выборочное среднее квадратическое отклонение $s$. Параметры $m$ и $\sigma$ нормального распределения неизвестны.\\
+	Доверительный интервал для $m$ с доверительной вероятностью $\gamma = 1-\alpha$:
+	\begin{equation}
+		\begin{split}
+			P\left(\bar{x} - \frac{sx}{\sqrt{n-1}} < m <  \bar{x} + \frac{sx}{\sqrt{n-1}}\right) = 2F_{T}(x) - 1 = 1 - \alpha,  \\
+			P\left(\bar{x} - \frac{st_{1-\alpha/2}(n-1)}{\sqrt{n-1}} < m <  \bar{x} + \frac{st_{1-\alpha/2}(n-1)}{\sqrt{n-1}}\right)= 1 - \alpha, 
+			\label{P_m}     
+		\end{split}
+	\end{equation}
+\end{flushleft}
+
+\subsubsection{Доверительный интервал для среднего квадратического отклонения $\sigma$ нормального распределения}
+\begin{flushleft}
+	Дана выборка ($x_{1},x_{2}, ... ,x_{n}$) объёма $n$ из нормальной генеральной совокупности. На её основе строим выборочную дисперсию $s^{2}$. Параметры $m$ и $\sigma$ нормального распределения неизвестны. Доказано, что случайная величина $ns^{2}/\sigma^{2}$ распределена по закону $\chi^{2}$ с $n-1$ степенями свободы.\\
+	Доверительный интервал для $\sigma$ с доверительной вероятностью $\gamma = 1 - \alpha$:
+	\begin{equation}
+		P\left(\frac{s\sqrt{n}}{\sqrt{\chi^{2}_{1-\alpha/2}(n-1)}} < \sigma <  \frac{s\sqrt{n}}{\sqrt{\chi^{2}_{\alpha/2}(n-1)}}\right) = 1- \alpha,
+		\label{fin_interval}
+	\end{equation}
+\end{flushleft}
+
+\subsection{Доверительные интервалы для математического ожидания $m$ и среднего квадратического отклонения $\sigma$ произвольного распределения при большом объёме выборки. Асимптотический подход}
+\begin{flushleft}
+	При большом объёме выборки для построения доверительных интервалов может быть использован асимптотический метод на основе центральной предельной теоремы.
+\end{flushleft}
+
+\subsubsection{Доверительный интервал для математического ожидания $m$ произвольной генеральной совокупности при большом объёме выборки}
+\begin{flushleft}
+	Предполагаем, что исследуемое генеральное распределение имеет конечные математическое ожидание $m$ и дисперсию $\sigma^{2}$.\\
+	$u_{1-\alpha/2}\,-$  квантиль нормального распределения N(0,1) порядка $1-\alpha/2$.\\
+	Доверительный интервал для $m$ с доверительной вероятностью $\gamma = 1-\alpha$:
+	\begin{equation}
+		P\left(\bar{x} - \frac{su_{1-\alpha/2}}{\sqrt{n}} < m < \bar{x} - \frac{su_{1-\alpha/2}}{\sqrt{n}} \right) \approx \gamma,
+		\label{P_fin_u}
+	\end{equation}
+\end{flushleft}
+
+\subsubsection{Доверительный интервал для среднего квадратического отклонения $\sigma$ произвольной генеральной совокупности при большом объёме выборки}
+\begin{flushleft}
+	Предполагаем, что исследуемая генеральная совокупность имеет конечные первые четыре момента.\\
+	$u_{1-\alpha/2}\,-$ квантиль нормального распределения N(0,1) порядка $1-\alpha/2$.\\
+	E = $\frac{\mu_{4}}{\sigma^{4}} - 3$ $-$ эксцесс генерального распределения, e = $\frac{m_{4}}{s^{4}} - 3$ $-$ выборочный эксцесс; $m_{4} = \frac{1}{n}\sum_{i =1}^{n}{(x_{i} - \bar{x})^{4}}$  $-$ четвёртый выборочный центральный момент.
+	\begin{equation}
+		s(1 + U)^{-1/2} < \sigma < s(1-U)^{-1/2}
+		\label{s_U}
+	\end{equation}
+	или
+	\begin{equation}
+		s(1-0.5U) < \sigma < s(1 + 0.5U),
+		\label{s_u}
+	\end{equation}
+	где $U = u_{1-\alpha/2}\sqrt{(e+2)/n}$.\\
+	Формулы (\ref{s_U}) или (\ref{s_u}) дают доверительный интервал для $\sigma$ с доверительной вероятностью $\gamma = 1-\alpha$ \cite[с.~461-462]{1}.\\
+	\textit{Замечание.} Вычисления по формуле (\ref{s_U}) дают более надёжный результат, так как в ней меньше грубых приближений.
+\end{flushleft}

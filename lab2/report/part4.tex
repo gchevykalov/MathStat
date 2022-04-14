@@ -1,0 +1,123 @@
+\section{Результаты}
+\subsection{Выборочные коэффициенты корреляции}
+\begin{table}[H]
+	\centering
+	\input{lab/task1\_data/20.tex}
+	\caption{Двумерное нормальное распределение, n = 20}
+	\label{tab:n20}
+\end{table}
+\begin{table}[H]
+	\centering
+	\input{lab/task1\_data/60.tex}
+	\caption{Двумерное нормальное распределение, n = 60}
+	\label{tab:n60}
+\end{table}
+\begin{table}[H]
+	\centering
+	\input{lab/task1\_data/100.tex}
+	\caption{Двумерное нормальное распределение, n = 100}
+	\label{tab:n100}
+\end{table}
+\begin{table}[H]
+	\centering
+	\input{lab/task1\_data/mix.tex}
+	\caption{Смесь нормальных распределений}
+	\label{tab:mix}
+\end{table}
+
+\subsection{Эллипсы рассеивания}
+\begin{flushleft}
+	Для уравнения эллипса выбиралась константа $const = 9$.
+\end{flushleft}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task1\_data/20}}
+	\caption{Двумерное нормальное распределение, $n$ = 20}
+	\label{fig:n20}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task1\_data/60}}
+	\caption{Двумерное нормальное распределение, $n$ = 60}
+	\label{fig:n60}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task1\_data/100}}
+	\caption{Двумерное нормальное распределение, $n$ = 100}
+	\label{fig:n100}
+\end{figure}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task1\_data/mix}}
+	\caption{Смесь нормальных распределений}
+	\label{fig:mix}
+\end{figure}
+
+\subsection{Оценки коэффициентов линейной регрессии}
+\subsubsection{Выборка без возмущений}
+\begin{flushleft}
+	\input{lab/task2\_data/no_noise.tex}
+\end{flushleft}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task2\_data/no_noise}}
+	\caption{Выборка без возмущений}
+	\label{fig:no_noise}
+\end{figure}
+\subsubsection{Выборка с возмущениями}
+\begin{flushleft}
+	\input{lab/task2\_data/noise.tex}
+\end{flushleft}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{task2\_data/noise}}
+	\caption{Выборка с возмущениями}
+	\label{fig:noise}
+\end{figure}
+
+\subsection{Проверка гипотезы о законе распределения генеральной совокупности. Метод хи-квадрат}
+\begin{flushleft}
+	Метод максимального правдоподобия: 
+	$\hat{\mu} \approx -0.08, \hat{\sigma} \approx 0.96$\\
+	\begin{table}[H]
+		\centering
+		\input{lab/task3_data/task3_normal.tex}
+		\caption{ Вычисление $\chi^{2}_{B}$ при проверке гипотезы $H_{0}$ о нормальном законе распределения $N(x,\hat{\mu}, \hat{\sigma})$}
+		\label{tab:normal_chi_2}
+	\end{table}
+	Видим, что $\chi^{2}_{B} < \chi^{2}_{0.95} \approx 14.1$, следовательно, гипотезу полагаем верной.\\
+	\begin{table}[H]
+		\centering
+		\input{lab/task3_data/task3_laplace.tex}
+		\caption{Вычисление $\chi^{2}_{B}$ при проверке гипотезы $H_{0}$ о законе распределения $L(x,\hat{\mu}, \hat{\sigma})$, $n=20$}
+		\label{tab:laplace_chi_2}
+	\end{table}
+	Видим, что $\chi^{2}_{B} < \chi^{2}_{0.95} \approx 14.1$, следовательно, гипотеза принимается и в этот раз.
+\end{flushleft}
+
+\subsection{Доверительные интервалы для параметров нормального распределения}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c | c |}
+		\hline
+		n = 20   &  $m$  & $\sigma$\\ \hline
+		&  -0.52 < $m$ < 0.37 & 0.72 < $\sigma$ < 1.38 \\ \hline
+		&   &   \\ \hline
+		n = 100   &  $m$  & $\sigma$\\ \hline
+		& -0.11 < $m$ < 0.30 & 0.91 < $\sigma$ < 1.20 \\
+		\hline
+	\end{tabular}
+	\caption{Доверительные интервалы для параметров нормального распределения}
+	\label{tab:interv_simple}
+\end{table}
+
+\subsection{Доверительные интервалы для параметров произвольного распределения. Асимптотический подход}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c | c |}
+		\hline
+		n = 20   &  $m$  & $\sigma$\\ \hline
+		&  -0.48 < $m$ < 0.33 & 0.68 < $\sigma$ < 2.47 \\ \hline
+		&   &   \\ \hline
+		n = 100   &  $m$  & $\sigma$\\ \hline
+		& -0.11 < $m$ < 0.29 & 0.85 < $\sigma$ < 1.42 \\
+		\hline
+	\end{tabular}
+	\caption{Доверительные интервалы для параметров произвольного распределения. Асимптотический подход}
+	\label{tab:interv_asimpt}
+\end{table}
