@@ -1,5 +1,7 @@
 import numpy as np
 from scipy.stats import chi2, t, norm, moment
+import os
+import matplotlib.pyplot as plt
 
 gamma = 0.95
 alpha = 1 - gamma
@@ -41,14 +43,42 @@ def get_as_sigma(samples, alpha):
     return q_1, q_2
 
 def task4():
+    if not os.path.isdir("task4_data"):
+        os.makedirs("task4_data")
+
     samples20 = np.random.normal(0, 1, size=20)
     samples100 = np.random.normal(0, 1, size=100)
+
+    fig, ax = plt.subplots(1, 2)
+    plt.subplots_adjust(wspace = 0.5)
+    ax[0].set_ylim([0,1])
+    ax[0].hist(samples20, 10, density = 1, edgecolor = 'black')
+    ax[0].set_title('N(0,1) hist, n = 20')
+    ax[1].set_ylim([0,1])
+    ax[1].hist(samples100, 10, density = 1, edgecolor = 'black')
+    ax[1].set_title('N(0,1) hist, n = 100')
+    plt.savefig('task4_data/hist.png')
+
+    fig, ax = plt.subplots(2, 2)
+    plt.subplots_adjust(wspace = 0.5, hspace = 1)
 
     student_20 = get_student_mo(samples20, alpha)
     student_100 = get_student_mo(samples100, alpha)
 
     chi_20 = get_chi_sigma(samples20, alpha)
     chi_100 = get_chi_sigma(samples100, alpha)
+
+    ax[0][0].plot([student_20[0], student_20[1]], [0.3, 0.3], color='r', marker = '.', linewidth = 1, label = 'm interval, n = 20')
+    ax[0][0].plot([student_100[0], student_100[1]], [0.6, 0.6], color='blue', marker = '.', linewidth = 1, label = 'm interval, n = 100')
+    ax[0][0].set_ylim([0,1])
+    ax[0][0].set_title('Classic approach')
+    ax[0][0].legend()
+
+    ax[0][1].plot([chi_20[0], chi_20[1]], [0.3, 0.3], color='r', marker = '.', linewidth = 1, label = 'sigma interval, n = 20')
+    ax[0][1].plot([chi_100[0], chi_100[1]], [0.6, 0.6], color='blue', marker = '.', linewidth = 1, label = 'sigma interval, n = 100')
+    ax[0][1].set_ylim([0,1])
+    ax[0][1].set_title('Classic approach')
+    ax[0][1].legend()
 
     print(f"Классический подход:\n"
         f"n = 20 \n"
@@ -61,6 +91,20 @@ def task4():
 
     as_d_20 = get_as_sigma(samples20, alpha)
     as_d_100 = get_as_sigma(samples100, alpha)
+
+    ax[1][0].plot([as_mo_20[0], as_mo_20[1]], [0.3, 0.3], color='r', marker = '.', linewidth = 1, label = 'm interval, n = 20')
+    ax[1][0].plot([as_mo_100[0], as_mo_100[1]], [0.6, 0.6], color='blue', marker = '.', linewidth = 1, label = 'm interval, n = 100')
+    ax[1][0].set_ylim([0,1])
+    ax[1][0].set_title('Asymptotic approach')
+    ax[1][0].legend()
+
+    ax[1][1].plot([as_d_20[0], as_d_20[1]], [0.3, 0.3], color='r', marker = '.', linewidth = 1, label = 'sigma interval, n = 20')
+    ax[1][1].plot([as_d_100[0], as_d_100[1]], [0.6, 0.6], color='blue', marker = '.', linewidth = 1, label = 'sigma interval, n = 100')
+    ax[1][1].set_ylim([0,1])
+    ax[1][1].set_title('Asymptotic approach')
+    ax[1][1].legend()
+
+    plt.savefig('task4_data/intervals.png')
 
     print(f"Асимптотический подход:\n"
         f"n = 20 \n"
