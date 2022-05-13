@@ -50,7 +50,7 @@ def task():
     plt.title('Data from experiment')
     plt.xlabel('n')
     plt.ylabel('mV')
-    plt.savefig("images/input_data.png")
+    #plt.savefig("images/input_data.png")
     plt.figure()
     
     data1 = [[data1[i][0] - EPS, data1[i][1] + EPS] for i in range(len(data1))]
@@ -64,7 +64,7 @@ def task():
     plt.title('Ch1 data with intervals')
     plt.xlabel('n')
     plt.ylabel('mV')
-    plt.savefig("images/data1_interval.png")
+    #plt.savefig("images/data1_interval.png")
     plt.figure()
 
     # plot second
@@ -75,7 +75,7 @@ def task():
     plt.title('Ch2 data with intervals')
     plt.xlabel('n')
     plt.ylabel('mV')
-    plt.savefig("images/data2_interval.png")
+    #plt.savefig("images/data2_interval.png")
     plt.figure()
 
     data1 = [[data1[i][0] - data1_w[i] * EPS, data1[i][1] + data1_w[i] * EPS] for i in range(len(data1))]
@@ -91,7 +91,7 @@ def task():
     plt.title('Ch1 linear regression')
     plt.xlabel('n')
     plt.ylabel('mV')
-    plt.savefig("images/data1_fixed.png")
+    #plt.savefig("images/data1_fixed.png")
     plt.figure()
 
     # plot second
@@ -104,21 +104,21 @@ def task():
     plt.title('Ch2 linear regression')
     plt.xlabel('n')
     plt.ylabel('mV')
-    plt.savefig("images/data2_fixed.png")
+    #plt.savefig("images/data2_fixed.png")
     plt.figure()
     
     #plot histogram
     plt.hist(data1_w, label="$w_1$")
     plt.legend()
     plt.title('$w_1$ histogram')
-    plt.savefig("images/w1_hist.png")
+    #plt.savefig("images/w1_hist.png")
     plt.figure()
     
     #plot histogram
     plt.hist(data2_w, label="$w_2$")
     plt.legend()
     plt.title('$w_2$ histogram')
-    plt.savefig("images/w2_hist.png")
+    #plt.savefig("images/w2_hist.png")
     plt.figure()
     
     data1_fixed = [[data1[i][0] - data1_B * data_n[i], data1[i][1] - data1_B * data_n[i]] for i in range(len(data1))]
@@ -132,7 +132,7 @@ def task():
     plt.title('Data without linear drifting')
     plt.xlabel('n')
     plt.ylabel('mV')
-    plt.savefig("images/data1_const.png")
+    #plt.savefig("images/data1_const.png")
     plt.figure()
     # plot second
     for i in range(len(data2_fixed)):
@@ -143,21 +143,21 @@ def task():
     plt.xlabel('n')
     plt.ylabel('mV')
     plt.title('Data without linear drifting')
-    plt.savefig("images/data2_const.png")
+    #plt.savefig("images/data2_const.png")
     plt.figure()
 
     # plot first histogram
     plot_interval_hist(data1_fixed, "C0", "$I_1^c$")       
     plt.legend()
     plt.title('$I_1^c$ histogram')
-    plt.savefig("images/data1_hist_const.png")
+    #plt.savefig("images/data1_hist_const.png")
     plt.figure()
 
     # plot second histogram
     plot_interval_hist(data2_fixed, "C1", "$I_2^c$")       
     plt.legend()
     plt.title('$I_2^c$ histogram')
-    plt.savefig("images/data2_hist_const.png")
+    #plt.savefig("images/data2_hist_const.png")
     plt.figure()
 
     R_interval = [0.00001 * i + 1 for i in range(15000)]
@@ -191,8 +191,15 @@ def task():
     plt.xlabel('$R_{21}$')
     plt.ylabel('Jaccard')
     plt.title('Jaccard vs R')
-    plt.show()
+    #plt.show()
     plt.figure()
+
+    data1_new = [[data1_fixed[i][0] * optimal_x[0], data1_fixed[i][1] * optimal_x[0]] for i in range(len(data1_fixed))]
+    all_data = data1_new + data2_fixed
+    plot_interval_hist(all_data, "C0", "Combined with optimal R")
+    plt.legend()
+    plt.title('Histogram of combined data with optimal R21')
+    plt.savefig("images/combined_hist.png")
 
 if __name__ == "__main__":
     task()
